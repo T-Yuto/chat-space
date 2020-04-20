@@ -56,7 +56,7 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|integer|null: false|
+|name|string|null: false|
 ### Association
 - has_many :users, through: :groups_users
 - has_many :messages
