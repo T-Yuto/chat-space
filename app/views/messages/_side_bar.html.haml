@@ -1,14 +1,15 @@
 .leftcontent
   .leftcontent__leftheader
-    .leftcontent__leftheader__myuser
-      %p.leftcontent__leftheader__myuser__username Username
+    %h3.leftcontent__leftheader__myuser
+      %p.leftcontent__leftheader__myuser__username
+        = current_user.name
       %ul.leftcontent__leftheader__myuser__icon
-        %li 
-          = link_to "/", class:"icon__btn icon__btn--newgroup" do
-            = icon('far', 'edit', class: "icon__btn--newgroup")
-        %li
-          = link_to "/", class:"icon__btn icon__btn--editaccount" do
-            = icon('fas', 'cogs', class: "icon__btn--editaccount")
+        %li.list
+          = link_to "/", class:"icon__list-newgroup" do
+            = icon('far', 'edit', class: "list__btn--newgroup")
+        %li.list
+          = link_to edit_user_path(current_user), class:"list__btn--editaccount" do
+            = icon('fas', 'cogs', class: "list__btn--editaccount")
   .leftcontent__leftmain
     .leftcontent__leftmain__groups
       .leftcontent__leftmain__groups__group
