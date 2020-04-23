@@ -1,0 +1,36 @@
+.maincontent
+  .maincontent__header
+    .maincontent__header__leftbox
+      .maincontent__header__leftbox__box
+        %h2.maincontent__header__leftbox__box__group-name GroupName
+        %ul.maincontent__header__leftbox__box__group-member-list
+          %p Member :
+          %li.maincontent__header__leftbox__box__group-member-list__member Uname
+    .maincontent__header__edit
+      = link_to 'Edit', "/", class: "edit-btn" 
+          
+  .maincontent__chatspace
+    .maincontent__chatspace__chatlist
+      .maincontent__chatspace__chatlist__name-date
+        .maincontent__chatspace__chatlist__name-date__chatname
+          %p Uname
+        .maincontent__chatspace__chatlist__name-date__chatdate
+          %p 2020/4/22 18:00:00
+      .maincontent__chatspace__chatlist__message
+        %p message  
+    .maincontent__chatspace__chatlist    
+      .maincontent__chatspace__chatlist__name-date
+        .maincontent__chatspace__chatlist__name-date__chatname
+          %p Uname
+        .maincontent__chatspace__chatlist__name-date__chatdate
+          %p 2020/4/22 18:00:00
+      .maincontent__chatspace__chatlist__message
+        %p message
+  .maincontent__chatbox
+    %form.maincontent__chatbox__form
+      %div.maincontent__chatbox__form__new-message
+        %input.maincontent__chatbox__form__new-message__textarea{placeholder: "type a message", type: "text", value: ""}
+        %label{class: "maincontent__chatbox__form__new-message__image"}
+          = icon('fas fa-images', class: "select-image")
+          %input{type: "file", class: "file"}
+      %input.maincontent__chatbox__form__send-btn{type: "submit", value: "", value: "Send"}
