@@ -158,53 +158,45 @@
                 }
             }
         }
-        &__chatbox{
+        &__form{
             background-color: #d2d2d2;
-            height:      90px;
             padding:20px 40px;
-            text-align:center;
-            &__form{
-                height: 50px;
-                display:flex;
-                text-align:center;
-                justify-content:space-between;
-                &__new-message{
-                    padding:0 0 0 10px;
-                    width:  100%;
-                    display:flex;
-                    &__textarea{
-                        line-height:50px;
-                        width:100%;
-                    }
-                    &__image{
-                        cursor: pointer;
-                        width: 50px;
-                        height:50px;
-                        line-height: 50px;
-                        text-align:center;
-                        background-color:white;
-
-                        &__select-image{
-                            color:black;
-                        }
-                        input{
-                            display: none;
-                        }
-                    }
-                    
+            height:90px;
+            width: 100%;
+            form{
+                display: flex;
+                height:  50px;
+            }
+            &__new-message{
+                padding:0 0 0 10px;
+                line-height:  50px;
+            }
+            &__image{
+                background-color:white;
+                position:relative;
+                cursor:   pointer;
+                line-height: 50px;
+                width:50px;
+                &__select-image{
+                    color:black;
                 }
-                &__send-btn{
-                    background-color:#38aef0;
-                    text-decoration:none;
-                    border-radius: 3px;
-                    line-height:  50px;
-                    margin: 0 0 0 15px;
-                    height:50px;
-                    width:100px;
-                    color: white;
-                    cursor:pointer;
-                }
+            }
+            &__send-btn{
+                background-color:#38aef0;
+                text-decoration:none;
+                border-radius: 3px;
+                margin: 0 0 0 15px;
+                width:100px;
+                color: white;
+                cursor:pointer;
             }
         }
     }
+.form__new-message{
+    width:100%;
+}
+.image__file{
+    display: none;
+}
+
 }

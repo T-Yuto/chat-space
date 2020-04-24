@@ -11,12 +11,11 @@
           
   .maincontent__chatspace
     = render @messages
-  .maincontent__chatbox
-    .maincontent__chatbox__form
-      = form_for [@group, @message] do |f|
-        = f.text_field :text, class: "maincontent__chatbox__form__new-massage", placeholder: "type a message"
-        .maincontent__chatbox__form__image
-          = f.label :image, class: "maincontent__chatbox__form__new-message__image" do
-            = icon('fas fa-images', class: "select-image")
-            = f.file_field :image, class: "file"
-        = f.submit "Send", class: "maincontent__chatbox__form__new-message__send-btn"
+  .maincontent__form
+    = form_for [@group, @message] do |f|
+      = f.text_field :text, class: "form__new-message", placeholder: "type a message"
+      .maincontent__form__image
+        = f.label :image, class: "form__image" do
+          = icon('fas fa-images', class: "image__select-image")
+          = f.file_field :image, class: "image__file"
+      = f.submit "Send", class: "maincontent__form__send-btn"
