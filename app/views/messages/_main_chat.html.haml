@@ -10,27 +10,13 @@
       = link_to 'Edit', "/", class: "edit-btn" 
           
   .maincontent__chatspace
-    .maincontent__chatspace__chatlist
-      .maincontent__chatspace__chatlist__name-date
-        .maincontent__chatspace__chatlist__name-date__chatname
-          %p Uname
-        .maincontent__chatspace__chatlist__name-date__chatdate
-          %p 2020/4/22 18:00:00
-      .maincontent__chatspace__chatlist__message
-        %p message  
-    .maincontent__chatspace__chatlist    
-      .maincontent__chatspace__chatlist__name-date
-        .maincontent__chatspace__chatlist__name-date__chatname
-          %p Uname
-        .maincontent__chatspace__chatlist__name-date__chatdate
-          %p 2020/4/22 18:00:00
-      .maincontent__chatspace__chatlist__message
-        %p message
+    = render @messages
   .maincontent__chatbox
-    %form.maincontent__chatbox__form
-      %div.maincontent__chatbox__form__new-message
-        %input.maincontent__chatbox__form__new-message__textarea{placeholder: "type a message", type: "text", value: ""}
-        %label{class: "maincontent__chatbox__form__new-message__image"}
-          = icon('fas fa-images', class: "select-image")
-          %input{type: "file", class: "file"}
-      %input.maincontent__chatbox__form__send-btn{type: "submit", value: "", value: "Send"}
+    .maincontent__chatbox__form
+      = form_for [@group, @message] do |f|
+        = f.text_field :text, class: "maincontent__chatbox__form__new-massage", placeholder: "type a message"
+        .maincontent__chatbox__form__image
+          = f.label :image, class: "maincontent__chatbox__form__new-message__image" do
+            = icon('fas fa-images', class: "select-image")
+            = f.file_field :image, class: "file"
+        = f.submit "Send", class: "maincontent__chatbox__form__new-message__send-btn"
