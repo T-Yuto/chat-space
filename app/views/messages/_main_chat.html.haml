@@ -7,9 +7,9 @@
         %ul.maincontent__header__leftbox__box__group-member-list
           %p Member :
           %li.maincontent__header__leftbox__box__group-member-list__member
-            -# = group.@users.name
+            
     .maincontent__header__edit
-      = link_to 'Edit', "/", class: "edit-btn" 
+      = link_to 'Edit', edit_group_path(@group.id), class: "edit-btn" 
           
   .maincontent__chatspace
     = render @messages
