@@ -2,10 +2,12 @@
   .maincontent__header
     .maincontent__header__leftbox
       .maincontent__header__leftbox__box
-        %h2.maincontent__header__leftbox__box__group-name GroupName
+        %h2.maincontent__header__leftbox__box__group-name  
+          = @group.name
         %ul.maincontent__header__leftbox__box__group-member-list
           %p Member :
-          %li.maincontent__header__leftbox__box__group-member-list__member Uname
+          %li.maincontent__header__leftbox__box__group-member-list__member
+            -# = group.@users.name
     .maincontent__header__edit
       = link_to 'Edit', "/", class: "edit-btn" 
           
