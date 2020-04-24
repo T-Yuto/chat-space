@@ -1,0 +1,12 @@
+
+.maincontent__chatspace__chatlist
+  .maincontent__chatspace__chatlist__name-date
+    .maincontent__chatspace__chatlist__name-date__chatname
+      = message.user.name
+    .maincontent__chatspace__chatlist__name-date__chatdate
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .maincontent__chatspace__chatlist__message
+    - if message.content.present?
+      %p.message__text
+         = message.text
+    = image_tag message.image.url, class: "message__image" if message.image.present?
