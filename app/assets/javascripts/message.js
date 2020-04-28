@@ -1,44 +1,43 @@
 $(function(){
   function buildHTML(message){
     if (message.image) {
-      var html =  
-        `<div class="maincontent__chatspace__chatlist">
-          <div class="maincontent__chatspace__chatlist__name-date">
-            <div class="maincontent__chatspace__chatlist__name-date__chatname">
-              ${message.user_name}
+          var html =  
+          `<div class="chatlist">
+            <div class="name-date">
+              <div class="name-date__chatname">
+                ${message.user_name}
+              </div>
+              <div class="name-date__chatdate">
+                ${message.created_at}
+              </div>
+              <div class="message">
+                <p class="message__text">
+                  ${message.text}
+                </p>
+              </div>
             </div>
-            <div class="maincontent__chatspace__chatlist__name-date__chatdate">
-              ${message.created_at}
+            <imag src=${message.image}>
+          </div>`
+          return html;
+        } else {
+          var html =  
+          `<div class="chatlist">
+            <div class="name-date">
+              <div class="name-date__chatname">
+                ${message.user_name}
+              </div>
+              <div class="name-date__chatdate">
+                ${message.created_at}
+              </div>
+              <div class="message">
+                <p class="message__text">
+                  ${message.text}
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="maincontent__chatspace__chatlist__message">
-            <p class="message__text">
-              ${message.text}
-            </p>
-            </div>
-            <img  src=${message.image}>
-        </div>`
-      return html;
-    } else {
-      var html =  
-        `<div class="maincontent__chatspace__chatlist">
-          <div class="maincontent__chatspace__chatlist__name-date">
-            <div class="maincontent__chatspace__chatlist__name-date__chatname">
-              ${message.user_name}
-            </div>
-            <div class="maincontent__chatspace__chatlist__name-date__chatdate">
-              ${message.created_at}
-            </div>
-          </div>
-          <div class="maincontent__chatspace__chatlist__message">
-            <p class="message__text">
-              ${message.text}
-            </p>
-          </div>
-        </div>`
-        return html;
-    };
-  }
+          </div>`
+        };
+      }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -52,10 +51,8 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      console.log(data)
-      var html = buildHTML(data);
-      $('.maincontent__chatspace').append(html);
-      $('form')[0].reset();
+        console.log(data);
+        var html = buildHTML(data);
     })
-  })
-});
+  });
+})
