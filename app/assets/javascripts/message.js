@@ -56,6 +56,11 @@ $(function(){
       var html = buildHTML(data);
       $('.maincontent__chatspace').append(html);
       $('form')[0].reset();
+      $('.maincontent__chatspace').animate({ scrollTop: $('.maincontent__chatspace')[0].scrollHeight});
+      $('.maincontent__form__send-btn').prop('disabled', false);
     })
+    .fail(function{
+      alert("メッセージ送信に失敗しました。");
+    });
   })
 });
