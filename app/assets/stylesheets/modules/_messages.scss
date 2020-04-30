@@ -58,6 +58,7 @@
             height:  100vh;
             padding: 100px 0 0 0;
             &__groups{
+                overflow: scroll;
                 margin: 0 20px 0 20px;
                 height:  100%;
                 display: flex;
