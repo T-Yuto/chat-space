@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'groups#index'
   resources :users, only: [:edit, :update, :index]
+  mount ActionCable.server => "/cable"
   resources :groups, only: [:index, :new, :create, :edit, :update] do
     resources :messages, only: [:index, :create]
     namespace :api do

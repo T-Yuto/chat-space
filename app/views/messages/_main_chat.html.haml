@@ -16,9 +16,9 @@
     = render @messages
   .maincontent__form
     = form_for [@group, @message] do |f|
-      = f.text_field :text, class: "form__new-message", placeholder: "type a message"
-      .maincontent__form__image
-        = f.label :image, class: "form__image" do
-          = icon('fas fa-images', class: "image__select-image")
-          = f.file_field :image, class: "image__file"
-      = f.submit "Send", class: "maincontent__form__send-btn"
+      = f.text_field :text, class: "message", placeholder: "type a message"
+      .label
+        = f.label :image, class: "label" do
+          %icon.fas.fa-images
+          = f.file_field :image, class: "file"
+      = f.submit "Send", class: "send-btn"

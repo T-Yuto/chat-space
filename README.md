@@ -1,63 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![chat-reload](/Readme/chatspace-animate.gif)
 
-Things you may want to cover:
+## groups_users テーブル
 
-* Ruby version
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user_id  | references | null: false, foreign_key: true |
+| group_id | references | null: false, foreign_key: true |
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-## groups_usersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|group_id|references|null: false, foreign_key: true|
 ### Association
+
 - belongs_to :group
 - belongs_to :user
 
-## messagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|text|text||
-|image|text||
-|user_id|refernces|null: false, foreign_key: true| 
-|gropu_id|refernces|null: false, foreign_key: true|
+## messages テーブル
+
+| Column   | Type      | Options                        |
+| -------- | --------- | ------------------------------ |
+| text     | text      |                                |
+| image    | text      |                                |
+| user_id  | refernces | null: false, foreign_key: true |
+| gropu_id | refernces | null: false, foreign_key: true |
+
 ### Association
+
 - belongs_to :group
 - belongs_to :user
-## usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false, index: true|
-|password|string|null: false|
-|email|string|null: false|
+
+## users テーブル
+
+| Column   | Type   | Options                  |
+| -------- | ------ | ------------------------ |
+| name     | string | null: false, index: true |
+| password | string | null: false              |
+| email    | string | null: false              |
+
 ### Association
+
 - has_many :groups, through: :groups_users
 - has_many :messages
 - has_many :groups_users
-## groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
+
+## groups テーブル
+
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| name   | string | null: false |
+
 ### Association
+
 - has_many :users, through: :groups_users
 - has_many :messages
 - has_many :groups_users
